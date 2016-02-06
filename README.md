@@ -10,12 +10,6 @@ docker exec -it django-demo python manage.py makemigrations
 docker exec -it django-demo python manage.py sqlmigrate whoami 0001
 ```
 
-todo:
-
-* add entry, list previous entries
-* add master/slave db config
-* add nginx container
-
 # SQL
 
 ```

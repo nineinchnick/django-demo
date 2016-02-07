@@ -1,2 +1,2 @@
 FROM postgres:latest
-COPY . /docker-entrypoint-initdb.d
+COPY base.sql master.sh /docker-entrypoint-initdb.d/

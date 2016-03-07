@@ -18,20 +18,5 @@ Service:
 ```
 docker exec -it django-demo python manage.py makemigrations
 docker exec -it django-demo python manage.py sqlmigrate whoami 0001
-```
-
-# SQL
-
-```
-BEGIN;
---
--- Create model Entry
---
-CREATE TABLE "whoami_entry" ("id" serial NOT NULL PRIMARY KEY, "contents" text NOT NULL, "created_on" timestamp with time zone NOT NULL);
-
-COMMIT;
-```
-
-```
 docker run -it --link db --rm postgres sh -c 'exec psql -h db -U postgres'
 ```

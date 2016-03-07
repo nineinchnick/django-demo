@@ -1,12 +1,12 @@
-FROM python:2.7
+FROM python:2.7.11-wheezy
 ENV PYTHONUNBUFFERED 1
 RUN mkdir /code
 WORKDIR /code
-ADD requirements.txt /code/
+COPY requirements.txt /code/
 RUN pip install -r requirements.txt
-ADD code/ /code/
-ENV DJANGO_SETTINGS_MODULE=docker_demo.settings.local
+COPY code/ /code/
+ENV DJANGO_SETTINGS_MODULE=docker_demo.settings.local APP_PORT=3001
 EXPOSE 8000
-ADD entrypoint.sh /entrypoint.sh
-ENTRYPOINT /entrypoint.sh
-CMD runserver
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["runserver"]
